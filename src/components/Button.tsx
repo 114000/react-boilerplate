@@ -1,3 +1,8 @@
+/**
+ * e.g.
+ * <Button className="bg-red-700">Sign In</Button>
+ */
+
 import React, { ButtonHTMLAttributes, FC } from 'react'
 import { useClassName } from '~/hooks'
 export const Button : FC<ButtonHTMLAttributes<any>> = ({

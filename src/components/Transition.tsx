@@ -6,11 +6,11 @@ const TransitionContext = React.createContext({
 })
 
 function useIsInitialRender() {
-  const isInitialRender = useRef(true);
+  const isInitialRender = useRef(true)
   useEffect(() => {
-    isInitialRender.current = false;
+    isInitialRender.current = false
   }, [])
-  return isInitialRender.current;
+  return isInitialRender.current
 }
 
 function CSSTransition({
@@ -27,24 +27,24 @@ function CSSTransition({
   children,
   ...rest
 }) {
-  const enterClasses = enter.split(' ').filter((s) => s.length);
-  const enterStartClasses = enterStart.split(' ').filter((s) => s.length);
-  const enterEndClasses = enterEnd.split(' ').filter((s) => s.length);
-  const leaveClasses = leave.split(' ').filter((s) => s.length);
-  const leaveStartClasses = leaveStart.split(' ').filter((s) => s.length);
-  const leaveEndClasses = leaveEnd.split(' ').filter((s) => s.length);
+  const enterClasses = enter.split(' ').filter((s) => s.length)
+  const enterStartClasses = enterStart.split(' ').filter((s) => s.length)
+  const enterEndClasses = enterEnd.split(' ').filter((s) => s.length)
+  const leaveClasses = leave.split(' ').filter((s) => s.length)
+  const leaveStartClasses = leaveStart.split(' ').filter((s) => s.length)
+  const leaveEndClasses = leaveEnd.split(' ').filter((s) => s.length)
   const removeFromDom = unmountOnExit;
 
-  function addClasses(node, classes) {
-    classes.length && node.classList.add(...classes);
+  function addClasses(node: any, classes: any) {
+    classes.length && node.classList.add(...classes)
   }
 
-  function removeClasses(node, classes) {
-    classes.length && node.classList.remove(...classes);
+  function removeClasses(node: any, classes: any) {
+    classes.length && node.classList.remove(...classes)
   }
 
-  const nodeRef = React.useRef(null);
-  const Component = tag;
+  const nodeRef = React.useRef<any>(null);
+  const Component = tag
 
   return (
     <ReactCSSTransition
@@ -75,18 +75,24 @@ function CSSTransition({
       }}
       onExited={() => {
         removeClasses(nodeRef.current, [...leaveEndClasses, ...leaveClasses])
-        if (!removeFromDom) nodeRef.current?.style.display = 'none';
+        if (!removeFromDom) nodeRef.current?.style.display = 'none'
       }}
     >
-      <Component ref={nodeRef} {...rest} style={{ display: !removeFromDom ? 'none': null }}>{children}</Component>
+      <Component 
+        ref={nodeRef} 
+        {...rest} 
+        style={{ display: !removeFromDom ? 'none': null }}
+      >
+          {children}
+      </Component>
     </ReactCSSTransition>
   )
 }
 
 function Transition({ show, appear, ...rest }) {
-  const { parent } = useContext(TransitionContext);
-  const isInitialRender = useIsInitialRender();
-  const isChild = show === undefined;
+  const { parent } = useContext(TransitionContext)
+  const isInitialRender = useIsInitialRender()
+  const isChild = show === undefined
 
   if (isChild) {
     return (
@@ -113,4 +119,4 @@ function Transition({ show, appear, ...rest }) {
   )
 }
 
-export default Transition;
+export default Transition
