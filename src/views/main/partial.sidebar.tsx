@@ -3,15 +3,18 @@ import { Link } from 'react-router-dom'
 
 export const Sidebar: FC<{
   signoutPath: string,
-  visible: boolean
+  visible: boolean,
+  sidebarToggle: (on?: any) => void
 }> = (props) => {
 
-  const { visible } = props
+  const { visible, sidebarToggle } = props
   const sidebar = useRef(null)
 
   return (
     <div className="lg:w-64">
-      <div className={`fixed inset-0 bg-gray-900 bg-opacity-30 z-40 lg:hidden lg:z-auto transition-opacity duration-200 ${visible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} aria-hidden="true"></div>
+      <div 
+        onClick={sidebarToggle}
+        className={`fixed inset-0 bg-gray-900 bg-opacity-30 z-40 lg:hidden lg:z-auto transition-opacity duration-200 ${visible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} aria-hidden="true"></div>
 
       <div
         id="sidebar"

@@ -1,6 +1,7 @@
 
-.no-outline {
+.no-outline, .no-outline:focus, .no-outline:active {
   outline: 0;
+  outline: none;
 }
 
 /* Chrome, Safari and Opera */

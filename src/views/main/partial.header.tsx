@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { Icon } from '@iconify/react'
-
+import { CircleIconButton } from '~/components'
 export const Header: FC<{
   sidebarToggle: (on?: any) => void
 }> = (props) => {
@@ -19,24 +19,20 @@ export const Header: FC<{
               onClick={props.sidebarToggle}
             >
               <span className="sr-only">Open sidebar</span>
-              <Icon icon="carbon:menu" />
-              <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <rect x="4" y="5" width="16" height="2" />
-                <rect x="4" y="11" width="16" height="2" />
-                <rect x="4" y="17" width="16" height="2" />
-              </svg>
+              <Icon icon="carbon:menu" className="text-2xl no-outline" />
             </button>
 
           </div>
 
           {/* Header: Right side */}
-          <div className="flex items-center">
-
-      <button onClick={props.sidebarToggle}>toggle</button>
-          
-
+          <div className="flex flex-1 items-center justify-end">
+            <CircleIconButton icon="bx:bx-search" iconClassName="w-5 h-5" />
+            <CircleIconButton icon="ion:language" iconClassName="w-4 h-4" />
           </div>
-
+          <hr className="w-px h-6 bg-gray-200 mx-3" />
+          <div>
+            menu
+          </div>
         </div>
       </div>
     </header>

@@ -6,11 +6,11 @@ import { useToggle } from 'react-use'
 
 export const Main: FC<{}> = (props) => {
 
-  const [on, toggle] = useToggle(true)
+  const [on, toggle] = useToggle(false)
 
   return (
     <div className="absolute w-full h-full flex items-stretch">
-      <Sidebar signoutPath="/signin" visible={on} />
+      <Sidebar signoutPath="/signin" visible={on} sidebarToggle={toggle} />
       <section className="flex flex-col flex-1">
         <Header sidebarToggle={toggle} />
         <div className="flex-1">
