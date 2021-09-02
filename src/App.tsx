@@ -1,30 +1,26 @@
 import React from 'react'
-import { Route, Switch, useRouteMatch } from 'react-router'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { Route, Switch, useRouteMatch, useLocation } from 'react-router'
+import { BrowserRouter as Router, Redirect } from 'react-router-dom'
 
 import { Signin } from '~/views/access'
 import { Main } from '~/views/main'
+import { ButtonPage, FormPage } from '~/views/cmp'
 
 export function App() {
-
-  const match = useRouteMatch()
-
-  console.log(match)
-
   return (
     <div className="App">
       <Switch>
         <Route path="/signin" component={Signin} />
         <Route path="/">
           <Main>
-            abc { match.url }
             <Switch>
-              <Route exact path="/" component={() => <div>13</div>} />
-              <Route path="/orders" component={() => <div>orders</div>} />
+              <Route path="/dashboard" component={() => <div>00</div>} />
+              <Route path="/components_button" component={ButtonPage} />
+              <Route path="/components_form" component={FormPage} />
+              <Redirect to="/dashboard"/>
             </Switch>
-            def
           </Main>
-        </Route>
+        </Route> 
       </Switch>
     </div>
   )

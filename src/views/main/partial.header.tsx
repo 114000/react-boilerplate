@@ -1,6 +1,8 @@
 import React, { FC } from 'react'
 import { Icon } from '@iconify/react'
 import { CircleIconButton } from '~/components'
+import { UserMenu } from './partial.header.UserMenu'
+
 export const Header: FC<{
   sidebarToggle: (on?: any) => void
 }> = (props) => {
@@ -30,9 +32,7 @@ export const Header: FC<{
             <CircleIconButton icon="ion:language" iconClassName="w-4 h-4" />
           </div>
           <hr className="w-px h-6 bg-gray-200 mx-3" />
-          <div>
-            menu
-          </div>
+          <UserMenu />
         </div>
       </div>
     </header>

@@ -10,10 +10,10 @@ export const Main: FC<{}> = (props) => {
 
   return (
     <div className="absolute w-full h-full flex items-stretch">
-      <Sidebar signoutPath="/signin" visible={on} sidebarToggle={toggle} />
+      <Sidebar visible={on} sidebarToggle={toggle} />
       <section className="flex flex-col flex-1">
         <Header sidebarToggle={toggle} />
-        <div className="flex-1">
+        <div className="flex-1 bg-gray-100 p-4">
         { props.children }
         </div>
       </section>
